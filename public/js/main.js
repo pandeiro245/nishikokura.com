@@ -24,9 +24,15 @@
     }
   };
 
-  contents = div("main", "row", function() {
-    return div("left", "span4", "あああ") + div("right", "span8", function() {
-      return "hi this is " + (name());
+  contents = div(null, "container", function() {
+    return div(null, "content", function() {
+      return div(null, "row", function() {
+        return div("main", "row", function() {
+          return div("left", "span4", "あああ") + div("right", "span8", function() {
+            return "hi this is " + (name());
+          });
+        });
+      });
     });
   });
 
