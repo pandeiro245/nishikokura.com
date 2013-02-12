@@ -1,3 +1,12 @@
 #main{
-  padding-top: 60px;
+  padding-top: 40px;
+}
+
+#contents{
+  font-size: 120px;
+  line-height:1.5;
+}
+
+.nav{
+  margin-top:46px;
 }
