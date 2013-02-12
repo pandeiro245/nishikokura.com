@@ -33,4 +33,5 @@ contents = div(null, "container", () ->
     )
   )
 )
+
 welcome()
