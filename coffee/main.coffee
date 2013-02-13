@@ -15,11 +15,24 @@ name = (type=null) ->
   if type then "nishikokura" else "Hironobu Nishikokura"
 
 sidebar = ul(null, "nav nav-tabs nav-stacked", () ->
-  li(null, null, () ->
-    a(null, null, "Overview", {href: "#overview"})
+  li(() ->
+    a("Overview", "#overview")
   ) +
-  li(null, null, () ->
-    a(null, "active", "Japan", {href: "#history"})
+  li(() ->
+    a("Japan", "#history")
+  ) +
+  li(
+    (
+      () ->
+        a("Overview", "#overview")
+    ),
+    {"class": "active"}
+  ) +
+  li(() ->
+    a("Overview", "#overview")
+  ) +
+  li(() ->
+    a("Overview", "#overview")
   )
 )
 

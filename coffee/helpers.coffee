@@ -9,28 +9,32 @@ toJapanese = (content) ->
   content = content.replace(/\./g, "。")
   content
 
-window.div = (id=null, cls=null, content="") ->
-  tag("div", id, cls, content)
+window.div = (id=null, cls=null, content="", params={}) ->
+  params["id"] = id if id
+  params["cls"] = cls if cls
+  tag("div", content, params)
 
-window.ul = (id=null, cls=null, content="") ->
-  tag("ul", id, cls, content)
+window.ul = (id=null, cls=null, content="", params={}) ->
+  params["id"] = id if id
+  params["cls"] = cls if cls
+  tag("ul", content, params)
 
-window.li = (id=null, cls=null, content="") ->
-  tag("li", id, cls, content)
+window.li = (content="", params = {}) ->
+  tag("li", content, params)
 
-window.a = (id=null, cls=null, content="", params={}) ->
-  tag("a", id, cls, content, params)
+window.a = (content="", href="", params={}) ->
+  params["href"] = href if href
+  tag("a", content, params)
 
-renderParams = (id=null, cls=null, params={}) ->
+renderParams = (params={}) ->
   res = ""
-  res += " id=\"#{id}\"" if id
-  res += " class=\"#{cls}\"" if cls
   for param of params
-    res += " #{param}=\"#{params[param]}\""
+    name = if param=="cls" then "class" else param
+    res += " #{name}=\"#{params[param]}\""
   return res
 
-tag = (tagName, id=null, cls=null, content="", params={}) ->
+tag = (tagName, content="", params={}) ->
   res = "<#{tagName}%p%>%c%</#{tagName}>"
-  p = renderParams(id, cls, params)
+  p = renderParams(params)
   res = res.replace(/%p%/, p)
   return res.replace(/%c%/, content)
