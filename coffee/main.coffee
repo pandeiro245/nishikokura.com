@@ -2,6 +2,10 @@ welcome = () ->
   render(
     header + contents
   )
+  $(window).bind('hashchange', ()->
+    $("#contents").html(location.hash)
+  )
+
 
 header = div(null, "navbar navbar-fixed-top",
   div(null, "navbar-inner", div(null, "container"))
@@ -17,9 +21,11 @@ contents = div(null, "container",
   div(null, "content",
     div("main", "row",
       sidebar +
-      div("contents", "span10", "_mindia inc.")
+      div("contents", "span10", currentPage() )
     )
   )
 )
 
 welcome()
+
+

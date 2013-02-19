@@ -1,8 +1,12 @@
 window.is_ja = true
+window.currentPage = () ->
+  l = "home"
+  l = location.hash.replace("#","") if location.hash
+  if pages[l] and pages[l]["content"] then pages[l]["content"] else ""
 
 window.render = (content) ->
   content = toJapanese(content)
-  $("body").append(content)
+  $("body").html(content)
   baseCss(is_ja)
 
 toJapanese = (content) ->
@@ -44,4 +48,4 @@ optParams = (params, id, cls, href) ->
   params["id"] = id if id
   params["cls"] = cls if cls
   params["href"] = id["href"] if id and id["href"]
-  params
+  return params
