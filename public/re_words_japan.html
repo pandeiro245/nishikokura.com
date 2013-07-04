@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Re: これはウェブページです｡</title>
+<body>
+<div style="max-width: 600px; margin:0 auto; ">
+<h1>Re: これはウェブページです｡</h1>
+<pre style="font-size:18px;">
+ただいま2013年7月5日の24時59分。
+「これはウェブページです｡」というウェブページに出会ってしまい、
+いてもたってもいられず「vim」を開いた。
+
+もう10年以上前。僕が高校生の時だ。
+家のパソコンに入っていたMicrosoft Wordに
+「Web用に保存」というコマンドを見つけ、
+「もしや」と思ったらそうで、
+これと「FFFTP」という無料のソフトだけで
+「HTML」という難しい技術を知らなくても
+世界中に情報発信できてしまった。
+
+そして世界と繋がった。
+
+「世界ともっと繋がるには英語が必要だ。
+でもいきなり英語圏の人と話すのは敷居が高い。
+日本人同士で英語チャットすれば分からないとき日本語使えるからいいのでは」
+と思ってそういう趣旨のコミュニティを作ってみたら
+次の日には賛同する人々が50人ぐらい集まった。
+
+思いつきが次の日に実現している。
+
+すごい。
+
+その後、2007年5月11日にインターネットの会社を作った。
+
+カネ無し、コネ無し、スキル無しの状態で
+mixiで知り合った南千住の町工場だけを頼りに
+大阪から上京した。
+
+翌月6月2日に運良くメンターに出会う。
+その方もインターネットの会社を経営していて
+やっぱりインターネットの会社を作って正解だったと思った。
+
+ゼロスタートなので、
+常に自分の成長を感じられた。
+昨日より今日が、今日より明日が、
+時間が経てば経つ程可能性が広がっていた。
+
+しかし、
+気付けば今では
+自分より 5歳とか10歳とか若い子達が
+素晴らしいWebサービスとか出してて、
+だんだん息苦しくなってきた。
+
+「mindiaという時代待ちサービスを作ってまして、
+中朝的にはアツイ会社になると確信してるんですけど
+短期的にはまだ受託開発メインの会社です。」
+
+みたいな立ち振る舞いをしながら現実から逃げていた。
+
+
+
+
+</pre>
+</div>
+
+<script src="./js/jquery.js"></script>
+<script>
+var links = {
+  "これはウェブページです｡": "http://justinjackson.ca/words_japan.html",
+  "vim" : "mindia"
+};
+for(var i in links){
+  if(links[i] == "mindia"){
+    links[i] = "http://mindia.jp/book/nishiko/keyword/" + i
+  }
+}
+
+function renderLink(key){
+  var href = links[key];
+  return "<a href=\"" + href + "\" target=\"_blank\">" + key + "</a>";
+};
+
+var content = $("pre").html()
+for(var i in links){
+  content = content.replace(
+    /「([^」]*)」/g, 
+    function(a, p1){
+      return "「"+(links[p1] ? renderLink(p1) : p1)+"」";
+    }
+  );
+}
+
+$("pre").html(
+  content
+);
+
+</script>
+</body>
+</html>
